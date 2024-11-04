@@ -28,7 +28,7 @@ app.get("/luck", (req, res) => {
 });
 
 app.get("/janken", (req, res) => {
-  let hand = req.query.hand; // 人間の手
+  let hand = req.query.bunnies0722.hand; // 人間の手
   let win = Number(req.query.win); // 勝利数
   let total = Number(req.query.total); // 試合数
   console.log({ hand, win, total });
