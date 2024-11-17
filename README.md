@@ -134,7 +134,7 @@ cpuCommon["CPU: 平民"];
 resultWin["結果: 勝ち"];
 resultLose["結果: 負け"];
 resultDraw["結果: 引き分け"];
-end["終了"];
+endGame["終了"];
 
 start --> choosePlayer;
 
@@ -151,17 +151,17 @@ chooseCPU --> cpuSlave;
 chooseCPU --> cpuCommon;
 
 %% 皇帝 vs 各ケース
-playerEmperor --> cpuEmperor --> resultDraw --> end;
-playerEmperor --> cpuSlave --> resultWin --> end;
-playerEmperor --> cpuCommon --> resultWin --> end;
+playerEmperor --> cpuEmperor --> resultDraw --> endGame;
+playerEmperor --> cpuSlave --> resultWin --> endGame;
+playerEmperor --> cpuCommon --> resultWin --> endGame;
 
 %% 奴隷 vs 各ケース
-playerSlave --> cpuEmperor --> resultWin --> end;
-playerSlave --> cpuSlave --> resultDraw --> end;
-playerSlave --> cpuCommon --> resultLose --> end;
+playerSlave --> cpuEmperor --> resultWin --> endGame;
+playerSlave --> cpuSlave --> resultDraw --> endGame;
+playerSlave --> cpuCommon --> resultLose --> endGame;
 
 %% 平民 vs 各ケース
-playerCommon --> cpuEmperor --> resultLose --> end;
-playerCommon --> cpuSlave --> resultWin --> end;
-playerCommon --> cpuCommon --> resultDraw --> end;
+playerCommon --> cpuEmperor --> resultLose --> endGame;
+playerCommon --> cpuSlave --> resultWin --> endGame;
+playerCommon --> cpuCommon --> resultDraw --> endGame;
 ```
