@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>E-Card Game</title>
+</head>
+<body>
+  <h1>Eカードゲーム</h1>
+
+  <!-- 選択肢のフォーム -->
+  <form action="/play" method="POST">
+    <button type="submit" name="card" value="皇帝">皇帝</button>
+    <button type="submit" name="card" value="奴隷">奴隷</button>
+    <button type="submit" name="card" value="平民">平民</button>
+    <input type="hidden" name="win" value="<%= win %>">
+    <input type="hidden" name="total" value="<%= total %>">
+  </form>
+
+  <!-- 結果表示 -->
+  <% if (result) { %>
+    <h2>結果: <%= judgement %></h2>
+    <p>あなたの選択: <%= player %></p>
+    <p>コンピュータの選択: <%= cpu %></p>
+    <p>勝利数: <%= win %></p>
+    <p>試合数: <%= total %></p>
+  <% } %>
+</body>
+</html>
+
+
+
+
+

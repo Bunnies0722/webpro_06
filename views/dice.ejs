@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dice Roll</title>
+</head>
+<body>
+  <h1>サイコロを振る</h1>
+
+  <% if (result !== null) { %>
+    <p>サイコロの出目: <%= result %></p>
+  <% } %>
+
+  <form action="/roll" method="POST">
+    <button type="submit">サイコロ 1</button>
+    <button type="submit">サイコロ 2</button>
+    <button type="submit">サイコロ 3</button>
+  </form>
+</body>
+</html>

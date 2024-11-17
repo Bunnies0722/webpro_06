@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 
 app.set('view engine', 'ejs');
+app.use(express.urlencoded({ extended: true }));
 app.use("/public", express.static(__dirname + "/public"));
 
 app.get("/hello1", (req, res) => {
@@ -27,19 +28,21 @@ app.get("/luck", (req, res) => {
   res.render('luck', { number: num, luck: luck });
 });
 
+
+
 app.get("/janken", (req, res) => {
-  let hand = req.query.bunnies0722.hand; // 人間の手
-  let win = Number(req.query.win); // 勝利数
-  let total = Number(req.query.total); // 試合数
+  let hand = req.query.hand; 
+  let win = Number(req.query.win) || 0; 
+  let total = Number(req.query.total) || 0; 
   console.log({ hand, win, total });
 
-  const num = Math.floor(Math.random() * 3 + 1); // CPUの手のランダム生成
-  let cpu = ''; // CPUの手
+  const num = Math.floor(Math.random() * 3 + 1);
+  let cpu = ''; 
   if (num == 1) cpu = 'グー';
   else if (num == 2) cpu = 'チョキ';
   else cpu = 'パー';
 
-  // 勝敗判定
+  
   let judgement = '';
   if (hand === cpu) {
     judgement = '引き分け';
@@ -49,12 +52,11 @@ app.get("/janken", (req, res) => {
     (hand === 'パー' && cpu === 'グー')
   ) {
     judgement = '勝ち';
-    win += 1; // 勝利数を増加
+    win += 1; 
   } else {
     judgement = '負け';
   }
-
-  total += 1; // 試合数を増加
+  total += 1; 
 
   const display = {
     your: hand,
@@ -63,9 +65,76 @@ app.get("/janken", (req, res) => {
     win: win,
     total: total
   };
-
   res.render('janken', display);
 });
+
+
+app.get("/dice", (req, res) => {
+  
+  res.render('dice', { result: null });
+});
+
+app.post("/roll", (req, res) => {
+
+  const diceResult = Math.floor(Math.random() * 6) + 1;
+  res.render('dice', { result: diceResult });
+});
+
+
+
+
+app.get("/ecard", (req, res) => {
+  // 初期表示では結果をnullで表示
+  res.render('ecard', { result: false, win: 0, total: 0  });
+});
+
+
+app.post("/play", (req, res) => {
+  const player = req.body.card; // プレイヤーの選択
+  let win = Number(req.body.win) || 0;
+  let total = Number(req.body.total) || 0;
+
+  // コンピュータの選択（皇帝、奴隷、平民のいずれか）
+  const cpuOptions = ["皇帝", "奴隷", "平民"];
+  const cpu = cpuOptions[Math.floor(Math.random() * cpuOptions.length)];
+
+  let judgement = '';
+
+  // 勝敗の判定
+  if (player === cpu) {
+    judgement = "引き分け";
+  } else if (
+    (player === "皇帝" && cpu === "平民") ||
+    (player === "平民" && cpu === "奴隷") ||
+    (player === "奴隷" && cpu === "皇帝")
+  ) {
+    judgement = "勝ち";
+    win += 1; // 勝利数を増加
+  } else if (
+    (player === "平民" && cpu === "皇帝") ||
+    (player === "奴隷" && cpu === "平民") ||
+    (player === "皇帝" && cpu === "奴隷")
+  ) {
+    judgement = "負け";
+  }
+
+  // 試合数を増加
+  total += 1;
+
+  res.render("ecard", {
+    result: true,
+    player: player,
+    cpu: cpu,
+    judgement: judgement,
+    win: win,
+    total: total
+  });
+});
+
+
+
+
+
 
 app.listen(8080, () => console.log("Example app listening on port 8080!"));
 
