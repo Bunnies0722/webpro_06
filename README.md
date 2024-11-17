@@ -53,24 +53,27 @@ loose2 --> end2;
 draw2 --> end2;
 ```
 
-
-
-
-
-
-
 ```mermaid
 flowchart TD;
 
-start["開始"];
-end1["終了"]
-if{"条件に合うか"}
-win["勝ち"]
-loose["負け"]
+start3["開始 (あなた: パー)"];
+end3["終了"];
+cpu3{"相手の手は？"};
+win3["勝ち"];
+loose3["負け"];
+draw3["引き分け"];
 
-start --> if
-if --> |yes| win
-win --> end1
-if --> |no| loose
-loose --> end1
-```
+start3 --> cpu3;
+cpu3 --> |グー| win3;
+cpu3 --> |チョキ| loose3;
+cpu3 --> |パー| draw3;
+win3 --> end3;
+loose3 --> end3;
+draw3 --> end3;
+
+
+
+
+
+
+
