@@ -119,8 +119,8 @@ localhost:8080/public/ecard
 ```mermaid
 flowchart TD;
 
-start["開始"];
-cpuChoose["CPUのカードを選ぶ"];
+start["開始（あなたの選択：皇帝）"];
+cpuChoose["CPUのカード"];
 
 cpuEmperor["CPU: 皇帝"];
 cpuSlave["CPU: 奴隷"];
@@ -141,8 +141,8 @@ cpuChoose --> cpuCommon --> resultWin --> endGame;
 ```mermaid
 flowchart TD;
 
-start["開始"];
-cpuChoose["CPUのカードを選ぶ"];
+start["開始（あなたの選択：平民）"];
+cpuChoose["CPUのカード"];
 
 cpuEmperor["CPU: 皇帝"];
 cpuSlave["CPU: 奴隷"];
@@ -164,8 +164,8 @@ cpuChoose --> cpuCommon --> resultDraw --> endGame;
 ```mermaid
 flowchart TD;
 
-start["開始"];
-cpuChoose["CPUのカードを選ぶ"];
+start["開始（あなたの選択：奴隷）"];
+cpuChoose["CPUのカード"];
 
 cpuEmperor["CPU: 皇帝"];
 cpuSlave["CPU: 奴隷"];
