@@ -120,12 +120,29 @@ localhost:8080/public/ecard
 flowchart TD;
 
 start["開始"];
-choosePlayer["自分のカードを選ぶ"];
-chooseCPU["CPUのカードを選ぶ"];
+cpuChoose["CPUのカードを選ぶ"];
 
-playerEmperor["自分: 皇帝"];
-playerSlave["自分: 奴隷"];
-playerCommon["自分: 平民"];
+cpuEmperor["CPU: 皇帝"];
+cpuSlave["CPU: 奴隷"];
+cpuCommon["CPU: 平民"];
+
+resultWin["結果: 勝ち"];
+resultDraw["結果: 引き分け"];
+endGame["終了"];
+
+start --> cpuChoose;
+
+cpuChoose --> cpuEmperor --> resultDraw --> endGame;
+cpuChoose --> cpuSlave --> resultWin --> endGame;
+cpuChoose --> cpuCommon --> resultWin --> endGame;
+```
+
+
+```mermaid
+flowchart TD;
+
+start["開始"];
+cpuChoose["CPUのカードを選ぶ"];
 
 cpuEmperor["CPU: 皇帝"];
 cpuSlave["CPU: 奴隷"];
@@ -136,32 +153,32 @@ resultLose["結果: 負け"];
 resultDraw["結果: 引き分け"];
 endGame["終了"];
 
-start --> choosePlayer;
+start --> cpuChoose;
 
-choosePlayer --> playerEmperor;
-choosePlayer --> playerSlave;
-choosePlayer --> playerCommon;
+cpuChoose --> cpuEmperor --> resultLose --> endGame;
+cpuChoose --> cpuSlave --> resultWin --> endGame;
+cpuChoose --> cpuCommon --> resultDraw --> endGame;
+```
 
-playerEmperor --> chooseCPU;
-playerSlave --> chooseCPU;
-playerCommon --> chooseCPU;
 
-chooseCPU --> cpuEmperor;
-chooseCPU --> cpuSlave;
-chooseCPU --> cpuCommon;
+```mermaid
+flowchart TD;
 
-%% 皇帝 vs 各ケース
-playerEmperor --> cpuEmperor --> resultDraw --> endGame;
-playerEmperor --> cpuSlave --> resultWin --> endGame;
-playerEmperor --> cpuCommon --> resultWin --> endGame;
+start["開始"];
+cpuChoose["CPUのカードを選ぶ"];
 
-%% 奴隷 vs 各ケース
-playerSlave --> cpuEmperor --> resultWin --> endGame;
-playerSlave --> cpuSlave --> resultDraw --> endGame;
-playerSlave --> cpuCommon --> resultLose --> endGame;
+cpuEmperor["CPU: 皇帝"];
+cpuSlave["CPU: 奴隷"];
+cpuCommon["CPU: 平民"];
 
-%% 平民 vs 各ケース
-playerCommon --> cpuEmperor --> resultLose --> endGame;
-playerCommon --> cpuSlave --> resultWin --> endGame;
-playerCommon --> cpuCommon --> resultDraw --> endGame;
+resultWin["結果: 勝ち"];
+resultLose["結果: 負け"];
+resultDraw["結果: 引き分け"];
+endGame["終了"];
+
+start --> cpuChoose;
+
+cpuChoose --> cpuEmperor --> resultWin --> endGame;
+cpuChoose --> cpuSlave --> resultDraw --> endGame;
+cpuChoose --> cpuCommon --> resultLose --> endGame;
 ```
