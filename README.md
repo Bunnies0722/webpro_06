@@ -34,6 +34,7 @@ loose1 --> end1;
 draw1 --> end1;
 ```
 
+```mermaid
 flowchart TD;
 
 start2["開始 (あなた: チョキ)"];
