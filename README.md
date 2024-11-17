@@ -32,7 +32,9 @@ cpu1 --> |グー| draw1;
 win1 --> end1;
 loose1 --> end1;
 draw1 --> end1;
+```
 
+flowchart TD;
 
 start2["開始 (あなた: チョキ)"];
 end2["終了"];
@@ -48,7 +50,7 @@ cpu2 --> |チョキ| draw2;
 win2 --> end2;
 loose2 --> end2;
 draw2 --> end2;
-
+```
 
 
 
