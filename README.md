@@ -34,7 +34,21 @@ loose1 --> end1;
 draw1 --> end1;
 
 
-```
+start2["開始 (あなた: チョキ)"];
+end2["終了"];
+cpu2{"相手の手は？"};
+win2["勝ち"];
+loose2["負け"];
+draw2["引き分け"];
+
+start2 --> cpu2;
+cpu2 --> |パー| win2;
+cpu2 --> |グー| loose2;
+cpu2 --> |チョキ| draw2;
+win2 --> end2;
+loose2 --> end2;
+draw2 --> end2;
+
 
 
 
