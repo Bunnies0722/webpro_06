@@ -127,13 +127,14 @@ cpuSlave["CPU: 奴隷"];
 cpuCommon["CPU: 平民"];
 
 resultWin["結果: 勝ち"];
+resultLose["結果: 負け"];
 resultDraw["結果: 引き分け"];
 endGame["終了"];
 
 start --> cpuChoose;
 
 cpuChoose --> cpuEmperor --> resultDraw --> endGame;
-cpuChoose --> cpuSlave --> resultWin --> endGame;
+cpuChoose --> cpuSlave --> resultLose --> endGame;
 cpuChoose --> cpuCommon --> resultWin --> endGame;
 ```
 
