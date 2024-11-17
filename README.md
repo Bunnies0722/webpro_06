@@ -82,7 +82,7 @@ localhost:8080/public/dice
 1. Webブラウザでlocalhost:8080/public/diceにアクセスする
 1. サイコロ1とサイコロ2とサイコロ3というボタンがありいずれかのボタンを押すとランダムで1〜6の数が選ばれサイコロの出目が表示される
 
-```marmaid
+```mermaid
 flowchart TD;
 
 start["開始"];
@@ -105,7 +105,7 @@ roll3 --> generate1;
 
 generate1 --> result1;
 result1 --> end1;
-
+```
 
 
 
