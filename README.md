@@ -18,19 +18,22 @@ localhost:8080/public/janken
 ```mermaid
 flowchart TD;
 
-start["開始"];
-end1["終了"]
-hand1["グー"]
-hand2["チョキ"]
-hand3["パー"]
-CPUhand1["グー"]
-CPUhand["チョキ"]
-CPUhand["パー"]
-win["勝ち"]
-draw["引き分け"]
-loose["負け"]
+start["じゃんけん開始"];
+decision["相手の手は？"];
+tie["引き分け"];
+win["勝ち"];
+lose["負け"];
+end1["終了"];
 
+start --> decision;
 
+decision --> |相手がグー| tie;
+decision --> |相手がチョキ| win;
+decision --> |相手がパー| lose;
+
+tie --> end1;
+win --> end1;
+lose --> end1;
 
 ```
 
