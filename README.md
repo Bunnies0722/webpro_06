@@ -17,7 +17,6 @@ localhost:8080/public/janken
 
 ```mermaid
 flowchart TD;
-flowchart TD;
 
 start1["開始 (あなた: グー)"];
 end1["終了"];
