@@ -13,7 +13,7 @@ localhost:8080/public/janken
 ```
 1. ```app5.js```を起動する
 1. Webブラウザでlocalhost:8080/public/jankenにアクセスする
-1. 自分の手をグーとチョキとパーの中から選び勝負！というボタンを押すとCPUの手と勝敗が表示され勝利数と試合数がカウントされる
+1. 自分の手をグーとチョキとパーの中から選び勝負！というボタンを押すとCPUが3つの手の中からランダムで手を選びCPUの手と勝敗が表示され勝利数と試合数がカウントされる
 
 ```mermaid
 flowchart TD;
@@ -109,4 +109,59 @@ result1 --> end1;
 
 
 
+```javascript
+localhost:8080/public/ecard
+```
+1. ```app5.js```を起動する
+1. Webブラウザでlocalhost:8080/public/ecardにアクセスする
+1. 皇帝と奴隷と平民というボタンがありいずれかのボタンを選ぶとCPUがランダムで三つの中から選びCPUのカードの種類と自分の選択したカードの種類と結果が表示され試合数と勝利数がカウントされる
 
+```mermaid
+flowchart TD;
+
+start["開始"];
+choosePlayer["自分のカードを選ぶ"];
+chooseCPU["CPUのカードを選ぶ"];
+
+playerEmperor["自分: 皇帝"];
+playerSlave["自分: 奴隷"];
+playerCommon["自分: 平民"];
+
+cpuEmperor["CPU: 皇帝"];
+cpuSlave["CPU: 奴隷"];
+cpuCommon["CPU: 平民"];
+
+resultWin["結果: 勝ち"];
+resultLose["結果: 負け"];
+resultDraw["結果: 引き分け"];
+end["終了"];
+
+start --> choosePlayer;
+
+choosePlayer --> playerEmperor;
+choosePlayer --> playerSlave;
+choosePlayer --> playerCommon;
+
+playerEmperor --> chooseCPU;
+playerSlave --> chooseCPU;
+playerCommon --> chooseCPU;
+
+chooseCPU --> cpuEmperor;
+chooseCPU --> cpuSlave;
+chooseCPU --> cpuCommon;
+
+%% 皇帝 vs 各ケース
+playerEmperor --> cpuEmperor --> resultDraw --> end;
+playerEmperor --> cpuSlave --> resultWin --> end;
+playerEmperor --> cpuCommon --> resultWin --> end;
+
+%% 奴隷 vs 各ケース
+playerSlave --> cpuEmperor --> resultWin --> end;
+playerSlave --> cpuSlave --> resultDraw --> end;
+playerSlave --> cpuCommon --> resultLose --> end;
+
+%% 平民 vs 各ケース
+playerCommon --> cpuEmperor --> resultLose --> end;
+playerCommon --> cpuSlave --> resultWin --> end;
+playerCommon --> cpuCommon --> resultDraw --> end;
+```
