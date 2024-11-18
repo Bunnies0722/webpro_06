@@ -8,11 +8,16 @@ public/janken.html | じゃんけんの開始画面
 views/janken.esj | じゃんけんのテンプレートファイル
 views/dice.esj | ダイスのテンプレートファイル
 views/ecard.esj | eカードのテンプレートファイル
+
+1. cd でプログラムの入っているファイルまで開きnode プログラム名　でサーバーを開始
+1. 別のターミナルを開き　telnet localhost 8080　を入力しその後にGET /luck HTTP/1.1
+Host: localhost　を入力する
+1. ```app5.js```を起動する
+1. Webブラウザで
 ```javascript
 localhost:8080/public/janken
 ```
-1. ```app5.js```を起動する
-1. Webブラウザでlocalhost:8080/public/jankenにアクセスする
+にアクセスする
 1. 自分の手をグーとチョキとパーの中から選び勝負！というボタンを押すとCPUが3つの手の中からランダムで手を選びCPUの手と勝敗が表示され勝利数と試合数がカウントされる
 
 ```mermaid
@@ -182,4 +187,12 @@ start --> cpuChoose;
 cpuChoose --> cpuEmperor --> resultWin --> endGame;
 cpuChoose --> cpuSlave --> resultDraw --> endGame;
 cpuChoose --> cpuCommon --> resultLose --> endGame;
+```
+
+
+
+
+
+```javascript
+localhost:8080/public/janken
 ```
