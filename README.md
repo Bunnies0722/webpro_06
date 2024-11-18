@@ -78,11 +78,13 @@ draw3 --> end3;
 
 
 
+1. cd でプログラムの入っているファイルまで開きnode プログラム名　でサーバーを開始
+1. 別のターミナルを開き　telnet localhost 8080　を入力しその後にGET /luck HTTP/1.1　と　Host: localhost　を入力する（この二つは改行する）
+1. Webブラウザで
 ```javascript
 localhost:8080/public/dice
 ```
-1. ```app5.js```を起動する
-1. Webブラウザでlocalhost:8080/public/diceにアクセスする
+にアクセスする
 1. サイコロ1とサイコロ2とサイコロ3というボタンがありいずれかのボタンを押すとランダムで1〜6の数が選ばれサイコロの出目が表示される
 
 ```mermaid
@@ -112,11 +114,13 @@ result1 --> end1;
 
 
 
+1. cd でプログラムの入っているファイルまで開きnode プログラム名　でサーバーを開始
+1. 別のターミナルを開き　telnet localhost 8080　を入力しその後にGET /luck HTTP/1.1　と　Host: localhost　を入力する（この二つは改行する）
+1. Webブラウザで
 ```javascript
 localhost:8080/public/ecard
 ```
-1. ```app5.js```を起動する
-1. Webブラウザでlocalhost:8080/public/ecardにアクセスする
+にアクセスする
 1. 皇帝と奴隷と平民というボタンがありいずれかのボタンを選ぶとCPUがランダムで三つの中から選びCPUのカードの種類と自分の選択したカードの種類と結果が表示され試合数と勝利数がカウントされる
 
 ```mermaid
@@ -190,7 +194,3 @@ cpuChoose --> cpuCommon --> resultLose --> endGame;
 
 
 
-
-```javascript
-localhost:8080/public/janken
-```
