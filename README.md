@@ -127,7 +127,7 @@ localhost:8080/ecard
 flowchart TD;
 
 start["開始（あなたの選択：皇帝）"];
-cpuChoose["CPUのカード"];
+cpuChoose{"CPUのカード"};
 
 cpuEmperor["CPU: 皇帝"];
 cpuSlave["CPU: 奴隷"];
@@ -150,7 +150,7 @@ cpuChoose --> cpuCommon --> resultWin --> endGame;
 flowchart TD;
 
 start["開始（あなたの選択：平民）"];
-cpuChoose["CPUのカード"];
+cpuChoose{"CPUのカード"};
 
 cpuEmperor["CPU: 皇帝"];
 cpuSlave["CPU: 奴隷"];
@@ -173,7 +173,7 @@ cpuChoose --> cpuCommon --> resultDraw --> endGame;
 flowchart TD;
 
 start["開始（あなたの選択：奴隷）"];
-cpuChoose["CPUのカード"];
+cpuChoose{"CPUのカード"};
 
 cpuEmperor["CPU: 皇帝"];
 cpuSlave["CPU: 奴隷"];
