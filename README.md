@@ -12,7 +12,6 @@ views/ecard.esj | eカードのテンプレートファイル
 1. cd でプログラムの入っているファイルまで開きnode プログラム名　でサーバーを開始
 1. 別のターミナルを開き　telnet localhost 8080　を入力しその後にGET /luck HTTP/1.1
 Host: localhost　を入力する
-1. ```app5.js```を起動する
 1. Webブラウザで
 ```javascript
 localhost:8080/public/janken
