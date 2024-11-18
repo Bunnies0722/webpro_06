@@ -9,11 +9,11 @@ views/janken.esj | じゃんけんのテンプレートファイル
 views/dice.esj | ダイスのテンプレートファイル
 views/ecard.esj | eカードのテンプレートファイル
 
-1. cd でプログラムの入っているファイルまで開きnode プログラム名　でサーバーを開始
+1. cd でプログラムの入っているファイルまで開きnode app5.js　でサーバーを開始
 1. 別のターミナルを開き　telnet localhost 8080　を入力しその後にGET /luck HTTP/1.1　と　Host: localhost　を入力する（この二つは改行する）
 1. Webブラウザで
 ```javascript
-localhost:8080/public/janken
+localhost:8080/janken
 ```
 にアクセスする
 1. 自分の手をグーとチョキとパーの中から選び勝負！というボタンを押すとCPUが3つの手の中からランダムで手を選びCPUの手と勝敗が表示され勝利数と試合数がカウントされる
@@ -78,11 +78,11 @@ draw3 --> end3;
 
 
 
-1. cd でプログラムの入っているファイルまで開きnode プログラム名　でサーバーを開始
+1. cd でプログラムの入っているファイルまで開きnode app5.js　でサーバーを開始
 1. 別のターミナルを開き　telnet localhost 8080　を入力しその後にGET /luck HTTP/1.1　と　Host: localhost　を入力する（この二つは改行する）
 1. Webブラウザで
 ```javascript
-localhost:8080/public/dice
+localhost:8080/dice
 ```
 にアクセスする
 1. サイコロ1とサイコロ2とサイコロ3というボタンがありいずれかのボタンを押すとランダムで1〜6の数が選ばれサイコロの出目が表示される
@@ -114,11 +114,11 @@ result1 --> end1;
 
 
 
-1. cd でプログラムの入っているファイルまで開きnode プログラム名　でサーバーを開始
+1. cd でプログラムの入っているファイルまで開きnode app5.js　でサーバーを開始
 1. 別のターミナルを開き　telnet localhost 8080　を入力しその後にGET /luck HTTP/1.1　と　Host: localhost　を入力する（この二つは改行する）
 1. Webブラウザで
 ```javascript
-localhost:8080/public/ecard
+localhost:8080/ecard
 ```
 にアクセスする
 1. 皇帝と奴隷と平民というボタンがありいずれかのボタンを選ぶとCPUがランダムで三つの中から選びCPUのカードの種類と自分の選択したカードの種類と結果が表示され試合数と勝利数がカウントされる
