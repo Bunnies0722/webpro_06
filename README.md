@@ -5,9 +5,9 @@
 -|-
 app5.js | プログラム本体（ダイスとeカードのプログラムを追加）
 public/janken.html | じゃんけんの開始画面
-views/janken.esj | じゃんけんのテンプレートファイル
-views/dice.esj | ダイスのテンプレートファイル
-views/ecard.esj | eカードのテンプレートファイル
+views/janken.ejs | じゃんけんのテンプレートファイル
+views/dice.ejs | ダイスのテンプレートファイル
+views/ecard.ejs | eカードのテンプレートファイル
 
 1. cd でプログラムの入っているファイルまで開きnode app5.js　でサーバーを開始
 1. 別のターミナルを開き　telnet localhost 8080　を入力しその後にGET /luck HTTP/1.1　と　Host: localhost　を入力する（この二つは改行する）
