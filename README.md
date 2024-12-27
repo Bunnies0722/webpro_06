@@ -29,13 +29,13 @@ resultCheck{"勝敗の判定"};
 win["勝ち"];
 lose["負け"];
 draw["引き分け"];
-end["終了"];
+end1["終了"];
 
 start --> choose --> cpuChoose --> resultCheck;
 
-resultCheck --> |勝ち| win --> end;
-resultCheck --> |負け| lose --> end;
-resultCheck --> |引き分け| draw --> end;
+resultCheck --> |勝ち| win --> end1;
+resultCheck --> |負け| lose --> end1;
+resultCheck --> |引き分け| draw --> end1;
 ```
 
 
@@ -97,13 +97,13 @@ resultCheck{"勝敗の判定"};
 win["勝ち"];
 lose["負け"];
 draw["引き分け"];
-end["終了"];
+end1["終了"];
 
 start --> choose --> cpuChoose --> resultCheck;
 
-resultCheck --> |勝ち| win --> end;
-resultCheck --> |負け| lose --> end;
-resultCheck --> |引き分け| draw --> end;
+resultCheck --> |勝ち| win --> end1;
+resultCheck --> |負け| lose --> end1;
+resultCheck --> |引き分け| draw --> end1;
 ```
 
 
