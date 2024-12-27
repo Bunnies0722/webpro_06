@@ -21,58 +21,21 @@ localhost:8080/janken
 ```mermaid
 flowchart TD;
 
-start1["開始 (あなたの手: グー)"];
-end1["終了"];
-cpu1{"CPUの手"};
-win1["勝ち"];
-loose1["負け"];
-draw1["引き分け"];
+start["開始"];
+choose["自分の手を選ぶ（グー・チョキ・パー）"];
+cpuChoose["CPUの手をランダムに生成"];
+resultCheck{"勝敗の判定"};
 
-start1 --> cpu1;
-cpu1 --> |チョキ| win1;
-cpu1 --> |パー| loose1;
-cpu1 --> |グー| draw1;
-win1 --> end1;
-loose1 --> end1;
-draw1 --> end1;
-```
+win["勝ち"];
+lose["負け"];
+draw["引き分け"];
+end["終了"];
 
-```mermaid
-flowchart TD;
+start --> choose --> cpuChoose --> resultCheck;
 
-start2["開始 (あなたの手: チョキ)"];
-end2["終了"];
-cpu2{"CPUの手"};
-win2["勝ち"];
-loose2["負け"];
-draw2["引き分け"];
-
-start2 --> cpu2;
-cpu2 --> |パー| win2;
-cpu2 --> |グー| loose2;
-cpu2 --> |チョキ| draw2;
-win2 --> end2;
-loose2 --> end2;
-draw2 --> end2;
-```
-
-```mermaid
-flowchart TD;
-
-start3["開始 (あなたの手: パー)"];
-end3["終了"];
-cpu3{"CPUの手"};
-win3["勝ち"];
-loose3["負け"];
-draw3["引き分け"];
-
-start3 --> cpu3;
-cpu3 --> |グー| win3;
-cpu3 --> |チョキ| loose3;
-cpu3 --> |パー| draw3;
-win3 --> end3;
-loose3 --> end3;
-draw3 --> end3;
+resultCheck --> |勝ち| win --> end;
+resultCheck --> |負け| lose --> end;
+resultCheck --> |引き分け| draw --> end;
 ```
 
 
@@ -149,47 +112,22 @@ cpuChoose --> cpuCommon --> resultWin --> endGame;
 ```mermaid
 flowchart TD;
 
-start["開始（あなたの選択：平民）"];
-cpuChoose{"CPUのカード"};
+start["開始"];
+choose["自分のカードを選ぶ（皇帝・平民・奴隷）"];
+cpuChoose["CPUのカードをランダムに生成"];
+resultCheck{"勝敗の判定"};
 
-cpuEmperor["CPU: 皇帝"];
-cpuSlave["CPU: 奴隷"];
-cpuCommon["CPU: 平民"];
+win["勝ち"];
+lose["負け"];
+draw["引き分け"];
+end["終了"];
 
-resultWin["結果: 勝ち"];
-resultLose["結果: 負け"];
-resultDraw["結果: 引き分け"];
-endGame["終了"];
+start --> choose --> cpuChoose --> resultCheck;
 
-start --> cpuChoose;
+resultCheck --> |勝ち| win --> end;
+resultCheck --> |負け| lose --> end;
+resultCheck --> |引き分け| draw --> end;
 
-cpuChoose --> cpuEmperor --> resultLose --> endGame;
-cpuChoose --> cpuSlave --> resultWin --> endGame;
-cpuChoose --> cpuCommon --> resultDraw --> endGame;
-```
-
-
-```mermaid
-flowchart TD;
-
-start["開始（あなたの選択：奴隷）"];
-cpuChoose{"CPUのカード"};
-
-cpuEmperor["CPU: 皇帝"];
-cpuSlave["CPU: 奴隷"];
-cpuCommon["CPU: 平民"];
-
-resultWin["結果: 勝ち"];
-resultLose["結果: 負け"];
-resultDraw["結果: 引き分け"];
-endGame["終了"];
-
-start --> cpuChoose;
-
-cpuChoose --> cpuEmperor --> resultWin --> endGame;
-cpuChoose --> cpuSlave --> resultDraw --> endGame;
-cpuChoose --> cpuCommon --> resultLose --> endGame;
-```
 
 
 
