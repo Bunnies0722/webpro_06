@@ -89,29 +89,6 @@ localhost:8080/ecard
 ```mermaid
 flowchart TD;
 
-start["開始（あなたの選択：皇帝）"];
-cpuChoose{"CPUのカード"};
-
-cpuEmperor["CPU: 皇帝"];
-cpuSlave["CPU: 奴隷"];
-cpuCommon["CPU: 平民"];
-
-resultWin["結果: 勝ち"];
-resultLose["結果: 負け"];
-resultDraw["結果: 引き分け"];
-endGame["終了"];
-
-start --> cpuChoose;
-
-cpuChoose --> cpuEmperor --> resultDraw --> endGame;
-cpuChoose --> cpuSlave --> resultLose --> endGame;
-cpuChoose --> cpuCommon --> resultWin --> endGame;
-```
-
-
-```mermaid
-flowchart TD;
-
 start["開始"];
 choose["自分のカードを選ぶ（皇帝・平民・奴隷）"];
 cpuChoose["CPUのカードをランダムに生成"];
@@ -127,7 +104,7 @@ start --> choose --> cpuChoose --> resultCheck;
 resultCheck --> |勝ち| win --> end;
 resultCheck --> |負け| lose --> end;
 resultCheck --> |引き分け| draw --> end;
-
+```
 
 
 
