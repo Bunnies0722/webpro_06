@@ -2,6 +2,7 @@
 const express = require("express");
 const app = express();
 
+
 let bbs = [];  // 本来はDBMSを使用するが，今回はこの変数にデータを蓄える
 
 app.set('view engine', 'ejs');
@@ -99,11 +100,16 @@ app.post("/read", (req, res) => {
 app.post("/post", (req, res) => {
   const name = req.body.name;
   const message = req.body.message;
-  console.log( [name, message] );
-  // 本来はここでDBMSに保存する
-  bbs.push( { name: name, message: message } );
-  res.json( {number: bbs.length } );
+  const timestamp = new Date().toLocaleString();
+  console.log([name, message, timestamp]);
+
+  if (!name || !message) {
+      return res.status(400).json({ error: "名前とメッセージを入力してください" });
+  }
+  bbs.push({ name, message, timestamp });
+  res.json({ number: bbs.length });
 });
+
 
 app.get("/bbs", (req,res) => {
     console.log("GET /BBS");
@@ -129,5 +135,19 @@ app.delete("/bbs/:id", (req,res) => {
     console.log( "DELETE /BBS/" + req.params.id );
     res.json( {test: "DELETE /BBS/" + req.params.id });
 });
+
+
+
+
+
+
+
+// DELETE: 全ての投稿を削除
+app.delete("/bbs", (req, res) => {
+  bbs = [];
+  console.log("全ての投稿が削除されました");
+  res.json({ message: "全ての投稿が削除されました" });
+});
+
 
 app.listen(8080, () => console.log("Example app listening on port 8080!"));
