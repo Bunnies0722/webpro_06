@@ -7,12 +7,18 @@
 <body>
     <h1>じゃんけん</h1>
     <form action="/janken" method="get">
-        <label for="hand">手を選んでください:</label>
-        <select name="hand" id="hand">
-            <option value="グー">グー</option>
-            <option value="チョキ">チョキ</option>
-            <option value="パー">パー</option>
-        </select>
+        <p>手を選んでください:</p>
+        
+        <div>
+            <input type="radio" id="gu" name="hand" value="グー" checked>
+            <label for="gu">グー</label>
+            
+            <input type="radio" id="choki" name="hand" value="チョキ">
+            <label for="choki">チョキ</label>
+            
+            <input type="radio" id="pa" name="hand" value="パー">
+            <label for="pa">パー</label>
+        </div>
         <input type="hidden" name="win" value="<%= win %>">
         <input type="hidden" name="total" value="<%= total %>">
         <button type="submit">勝負！</button>
