@@ -69,76 +69,28 @@ app.get("/janken", (req, res) => {
 });
 
 
-app.get("/dice", (req, res) => {
-  
-  res.render('dice', { result: null });
-});
 
-app.post("/roll", (req, res) => {
-
-  const diceResult = Math.floor(Math.random() * 6) + 1;
-  res.render('dice', { result: diceResult });
-});
-
-
-
-
-app.get("/ecard", (req, res) => {
-  // 初期表示では結果をnullで表示
-  res.render('ecard', { result: false, win: 0, total: 0  });
-});
-
-
-app.post("/play", (req, res) => {
-  const player = req.body.card; // プレイヤーの選択
-  let win = Number(req.body.win) || 0;
-  let total = Number(req.body.total) || 0;
-
-  // コンピュータの選択（皇帝、奴隷、平民のいずれか）
-  const cpuOptions = ["皇帝", "奴隷", "平民"];
-  const cpu = cpuOptions[Math.floor(Math.random() * cpuOptions.length)];
-
-  let judgement = '';
-
-  // 勝敗の判定
-  if (player === cpu) {
-    judgement = "引き分け";
-  } else if (
-    (player === "皇帝" && cpu === "平民") ||
-    (player === "平民" && cpu === "奴隷") ||
-    (player === "奴隷" && cpu === "皇帝")
-  ) {
-    judgement = "勝ち";
-    win += 1; // 勝利数を増加
-  } else if (
-    (player === "平民" && cpu === "皇帝") ||
-    (player === "奴隷" && cpu === "平民") ||
-    (player === "皇帝" && cpu === "奴隷")
-  ) {
-    judgement = "負け";
-  }
-
-  // 試合数を増加
-  total += 1;
-
-  res.render("ecard", {
-    result: true,
-    player: player,
-    cpu: cpu,
-    judgement: judgement,
-    win: win,
-    total: total
-  });
-});
-
-let station = [
-  { id:1, code:"JE01", name:"東京駅"},
-  { id:2, code:"JE07", name:"舞浜駅"},
-  { id:3, code:"JE12", name:"新習志野駅"},
-  { id:4, code:"JE13", name:"幕張豊砂駅"},
-  { id:5, code:"JE14", name:"海浜幕張駅"},
-  { id:6, code:"JE05", name:"新浦安駅"},
+let station2 = [
+  { id:1, code:"JE01", name:"東京駅", change:"総武本線，中央線，etc", passengers:403831, distance:0 },
+  { id:2, code:"JE02", name:"八丁堀駅", change:"日比谷線", passengers:31071, distance:1.2 },
+  { id:3, code:"JE05", name:"新木場駅", change:"有楽町線，りんかい線", passengers:67206, distance:7.4 },
+  { id:4, code:"JE07", name:"舞浜駅", change:"舞浜リゾートライン", passengers:76156,distance:12.7 },
+  { id:5, code:"JE12", name:"新習志野駅", change:"", passengers:11655, distance:28.3 },
+  { id:6, code:"JE17", name:"千葉みなと駅", change:"千葉都市モノレール", passengers:16602, distance:39.0 },
+  { id:7, code:"JE18", name:"蘇我駅", change:"内房線，外房線", passengers:31328, distance:43.0 },
 ];
+
+app.get("/keiyo2", (req, res) => {
+  // 本来ならここにDBとのやり取りが入る
+  res.render('keiyo2', {data: station2} );
+});
+
+app.get("/keiyo2/:number", (req, res) => {
+  // 本来ならここにDBとのやり取りが入る
+  const number = req.params.number;
+  const detail = station2[ number ];
+  res.render('keiyo2_detail', {data: detail} );
+});
 
 app.get("/keiyo", (req, res) => {
   // 本来ならここにDBとのやり取りが入る
