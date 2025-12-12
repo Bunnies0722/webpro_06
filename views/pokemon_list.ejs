@@ -1,0 +1,28 @@
+<!Doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>ポケモン図鑑データ一覧</title>
+</head>
+<body>
+  <h1>ポケモンデータ一覧</h1>
+  <a href="/pokemon/create">新しいポケモンを登録</a>
+  <hr>
+  <table>
+    <tr><th>No.</th><th>図鑑No.</th><th>名前</th><th>タイプ1</th><th>操作</th></tr>
+      <% 
+      // 講義資料のkeiyo2.ejsと同様に、インデックスを i で管理
+      for( let i = 0; i < data.length; i++ ) { 
+      %>
+          <tr>
+            <td><%= i + 1 %></td>
+            <td><%= data[i].number %></td>
+            <td><a href="/pokemon/<%= i %>"><%= data[i].name %></a></td> 
+            <td><%= data[i].type1 %></td>
+            <td><a href="/pokemon/delete/<%= i %>" onclick="return confirm('本当に削除しますか？');">削除</a></td>
+          </tr>
+      <% } %>
+  </table>
+  <br>
+</body>
+</html>

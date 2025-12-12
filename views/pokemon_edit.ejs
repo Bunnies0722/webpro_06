@@ -1,0 +1,25 @@
+<!Doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title><%= data.name %>の編集</title>
+</head>
+<body>
+  <h1>No.<%= data.number %> <%= data.name %> の編集</h1>
+  <form action="/pokemon/update/<%= index %>" method="POST">
+    <table>
+      <tr><th>項目</th><th>データ</th></tr>
+      <tr><td>図鑑No.</td><td><input type="text" name="number" value="<%= data.number %>" required></td></tr>
+      <tr><td>名前</td><td><input type="text" name="name" value="<%= data.name %>" required></td></tr>
+      <tr><td>タイプ1</td><td><input type="text" name="type1" value="<%= data.type1 %>" required></td></tr>
+      <tr><td>タイプ2</td><td><input type="text" name="type2" value="<%= data.type2 %>"></td></tr>
+      <tr><td>特性</td><td><input type="text" name="ability" value="<%= data.ability %>"></td></tr>
+    </table>
+    <br>
+    <input type="submit" value="更新">
+  </form>
+  <hr>
+  <a href="/pokemon/<%= index %>">詳細画面に戻る</a><br>
+  <a href="/pokemon">一覧に戻る</a>
+</body>
+</html>

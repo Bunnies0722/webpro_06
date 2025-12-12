@@ -53,7 +53,7 @@ app.post("/keiyo2", (req, res) => {
   const passengers = req.body.passengers;
   const distance = req.body.distance;
   station2.push( { id: id, code: code, name: name, change: change, passengers: passengers, distance: distance } );
-  console.log( station2 );
+  console.log( station2 );    
   res.render('keiyo2', {data: station2} );
 });
 
