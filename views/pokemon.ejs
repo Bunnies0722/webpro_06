@@ -1,0 +1,24 @@
+<!Doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>ポケモン図鑑データ一覧</title>
+</head>
+<body>
+  <h1>ポケモンデータ一覧</h1>
+  <table>
+    <tr><th>ID</th><th>図鑑No.</th><th>名前</th><th>タイプ1</th><th>操作</th></tr>
+      <% let number = 0; %>
+      <% for( let row of data ) { %>
+          <tr><td><%= number + 1 %></td>
+            <td><%= row.code %></td> 
+            <td><a href="/pokemon/<%= number %>"><%= row.name %></a></td> 
+            <td><%= row.type1 %></td> 
+              <td><a href="/pokemon/delete/<%= number %>" onclick="return confirm">削除</a></td>
+          </tr>
+          <% number += 1; %> 
+      <% } %>
+  </table>
+  <a href="/pokemon/create">追加</a>
+</body>
+</html>

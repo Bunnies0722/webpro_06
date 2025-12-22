@@ -7,17 +7,18 @@
 <body>
     <h1>新規ポケモン登録</h1>
     <form action="/pokemon" method="POST">
-        <table>
-            <tr><td>図鑑No. (例: 001)</td><td><input type="text" name="number" required></td></tr>
-            <tr><td>名前</td><td><input type="text" name="name" required></td></tr>
-            <tr><td>タイプ1</td><td><input type="text" name="type1" required></td></tr>
-            <tr><td>タイプ2 (空欄可)</td><td><input type="text" name="type2"></td></tr>
-            <tr><td>特性 (空欄可)</td><td><input type="text" name="ability"></td></tr>
-        </table>
-        <br>
+        <input type="text" name="code" required>
+        <label for="code">図鑑No.</label><br>
+        <input type="text" name="name" required>
+        <label for="name">名前</label><br>
+        <input type="text" name="type1">
+        <label for="type1">タイプ1</label><br>
+        <input type="text" name="type2">
+        <label for="type2">タイプ2:</label><br>
+        <input type="text" name="ability" required>
+        <label for="ability">特性</label><br>   
         <input type="submit" value="登録">
     </form>
-    <hr>
     <a href="/pokemon">一覧に戻る</a>
 </body>
 </html>

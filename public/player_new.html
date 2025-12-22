@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>新規選手登録</title>
+</head>
+<body>
+    <h1>新規選手登録</h1>
+    <form action="/player" method="POST">
+
+        <input type="text" name="number" required>
+        <label for="number">背番号</label><br>
+        <input type="text" name="name" required>
+        <label for="name">選手名</label><br>
+        <input type="text" name="position">
+        <label for="position">ポジション</label><br>
+        <input type="text" name="team">
+        <label for="team">チーム名</label><br>
+        <input type="text" name="nation">
+        <label for="nation">国籍</label><br>   
+        <input type="submit" value="登録">
+    </form>
+    <a href="/player">一覧に戻る</a>
+</body>
+</html>

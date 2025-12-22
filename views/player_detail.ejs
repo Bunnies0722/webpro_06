@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title><%= data.name %> の詳細</title>
+</head>
+<body>
+  <h2>No.<%= data.number %> <%= data.name %> の詳細</h2>
+
+  <table>
+    <tr><th>項目</th><th>データ</th></tr>
+    <tr><td>背番号</td><td><%= data.number %></td></tr>
+    <tr><td>選手名</td><td><%= data.name %></td></tr>
+    <tr><td>ポジション</td><td><%= data.position %></td></tr>
+    <tr><td>チーム名</td><td><%= data.team %></td></tr>
+    <tr><td>国籍</td><td><%= data.nation %></td></tr>
+  </table>
+  <a href="/player/edit/<%= id %>">このデータを編集</a><br>
+  <a href="/player">一覧に戻る</a>
+</body>
+</html>

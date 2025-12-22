@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>新規映画登録</title>
+</head>
+<body>
+    <h1>新規映画登録</h1>
+    <form action="/movie" method="POST">
+        <input type="text" name="code" required>
+        <label for="code">作品コード</label><br>
+        <input type="text" name="title" required>
+        <label for="title">タイトル</label><br>
+        <input type="text" name="genre">
+        <label for="genre">ジャンル</label><br>
+        <input type="text" name="year">
+        <label for="year">公開年</label><br>
+        <input type="text" name="director" required>
+        <label for="director">監督</label><br>   
+        <input type="submit" value="登録">
+    </form>
+    <a href="/movie">一覧に戻る</a>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!Doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title><%= data.title %>の編集</title>
+</head>
+<body>
+  <h1>Code.<%= data.code %> <%= data.title %> の編集</h1>
+  <form action="/movie/update/<%= data.id - 1 %>" method="POST">
+    <table>
+      <tr><th>項目</th><th>データ</th></tr>
+      <tr><td>作品コード</td><td><input type="text" name="code" value="<%= data.code %>" required></td></tr>
+      <tr><td>タイトル</td><td><input type="text" name="title" value="<%= data.title %>" required></td></tr>
+      <tr><td>ジャンル</td><td><input type="text" name="genre" value="<%= data.genre %>" required></td></tr>
+      <tr><td>公開年</td><td><input type="text" name="year" value="<%= data.year %>"></td></tr>
+      <tr><td>監督</td><td><input type="text" name="director" value="<%= data.director %>"></td></tr>
+    </table>
+    <br>
+    <input type="submit" value="更新">
+  </form>
+  <a href="/movie">一覧に戻る</a>
+</body>
+</html>

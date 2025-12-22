@@ -5,17 +5,16 @@
   <title><%= data.name %>の詳細</title>
 </head>
 <body>
-  <h2>No.<%= data.number %> <%= data.name %> の詳細</h2>
+  <h2>No.<%= data.code %><%= data.name %> の詳細</h2>
   <table>
     <tr><th>項目</th><th>データ</th></tr>
-    <tr><td>図鑑No.</td><td><%= data.number %></td></tr>
+    <tr><td>図鑑No.</td><td><%= data.code %></td></tr>
     <tr><td>名前</td><td><%= data.name %></td></tr>
     <tr><td>タイプ1</td><td><%= data.type1 %></td></tr>
     <tr><td>タイプ2</td><td><%= data.type2 || 'なし' %></td></tr>
     <tr><td>特性</td><td><%= data.ability %></td></tr>
   </table>
-  <hr>
-  <a href="/pokemon/edit/<%= index %>">このデータを編集</a><br>
+  <a href="/pokemon/edit/<%= id %>">このデータを編集</a><br>
   <a href="/pokemon">一覧に戻る</a>
 </body>
 </html>
